@@ -1,0 +1,47 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>JSON Sample</title>
+</head>
+<body>
+    <div id="placeholder"></div>
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script>
+  $.getJSON('data.json', function(data) {
+        var output="<ul>";
+        for (var i in data.collection1) {
+            output+="<li>" + data.collection1[i].product_name.text + " " + data.feed[i].prod_description + "--" + data.collection1[i].upvotes + "</li>";
+        }
+
+        output+="</ul>";
+        document.getElementById("placeholder").innerHTML=output;
+  });
+    </script>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>JSON Sample</title>
+    <link type="text/css" rel="stylesheet" href="stylesheet.css" />
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div id="placeholder"></div>
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script>
+  $.getJSON("https://www.kimonolabs.com/api/bedb6p28?apikey=6a066c15f0e42b4227b5f61ea470ac32", function(data) {
+        var output="<div id='feed'>";
+        for (var i in data.results.collection1) {
+            output+= "<div class='arrow-up'></div>" + "<h3 class='upvote'>" + data.results.collection1[i].upvotes + "</h3>" + "<h1 class='pname'>" + "<a href='" + data.results.collection1[i].product_name.href + "''>" + data.results.collection1[i].product_name.text + "</a>" +"</h1>" + "<p class='tagline'>" + " - " + data.results.collection1[i].prod_description + "</p>" + " " + "<p class='comments'>" + "<a href='" + data.results.collection1[i].comments.href + "''>" + data.results.collection1[i].comments.text + "</a>" + "</p>" + "<br>";
+        }
+
+        output+="</ul>";
+        document.getElementById("placeholder").innerHTML=output;
+  });
+    </script>
+</body>
+</html>
